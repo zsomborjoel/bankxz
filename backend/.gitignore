@@ -45,6 +45,7 @@ out/
 *.ipr
 *.iws
 .idea/*
+.idea/.name
 
 ##############################
 ## Eclipse

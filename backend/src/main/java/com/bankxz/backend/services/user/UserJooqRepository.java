@@ -5,7 +5,6 @@ import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
 import org.springframework.stereotype.Repository;
-import static
 
 @Repository
 @RequiredArgsConstructor

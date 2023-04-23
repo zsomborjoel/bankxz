@@ -44,6 +44,7 @@ dependencies {
 
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
 	implementation 'org.apache.commons:commons-collections4:4.4'
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
 
 	compileOnly "org.projectlombok:lombok:${lombokVersion}"
 
@@ -72,10 +73,15 @@ GenerationTool.generate(new Configuration()
 				.withUser('postgres')
 				.withPassword('1234'))
 		.withGenerator(new Generator()
-				.withDatabase(new Database())
+				.withDatabase(new Database()
+						.withName("org.jooq.meta.postgres.PostgresDatabase")
+						.withInputSchema("public")
+						.withIncludes(".*"))
 				.withGenerate(new Generate()
+						.withRelations(true)
+						.withDeprecated(false)
 						.withPojos(true)
 						.withDaos(true))
 				.withTarget(new Target()
-						.withPackageName('com.bankxz.backend')
-						.withDirectory('src/main/java'))))
+						.withPackageName('com.bankxz.backend.generated')
+						.withDirectory('/home/zsomborjoel/Git/bankxz/backend/src/main/java'))))
