@@ -1,13 +1,12 @@
 package com.bankxz.backend.services.user;
 
-import com.bankxz.backend.entities.User;
-import com.bankxz.backend.exceptions.EntityNotFoundException;
+import com.bankxz.backend.generated.tables.daos.UserDao;
+import com.bankxz.backend.generated.tables.pojos.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -15,29 +14,25 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final UserDao userDao;
 
     public User getById(final UUID id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(User.class, Map.of("id", id.toString())));
+        return userDao.findById(id);
     }
 
     public List<User> getAll() {
-        return userRepository.findAll();
+        return userDao.findAll();
     }
 
     public UUID save(final User user) {
-        user.addPhoneRelation(user.getPhones());
-        user.addAddressRelation(user.getAddresses());
-        userRepository.save(user);
+        userDao.insert(user);
         log.info("User has been saved | [{}]", user);
         return user.getId();
     }
 
-    public List<UUID> saveAll(final List<User> users) {
-        userRepository.saveAll(users);
+    public void saveAll(final List<User> users) {
+        userDao.insert(users);
         log.info("This many users has been bulk saved | [{}]", users.size());
-        return users.stream().map(User::getId).toList();
     }
 
 }

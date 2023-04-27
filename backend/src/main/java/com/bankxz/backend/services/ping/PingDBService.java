@@ -1,6 +1,7 @@
 package com.bankxz.backend.services.ping;
 
 import lombok.RequiredArgsConstructor;
+import org.jooq.DSLContext;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -9,10 +10,10 @@ import javax.persistence.EntityManager;
 @RequiredArgsConstructor
 public class PingDBService {
 
-    private final EntityManager entityManager;
+    private final DSLContext create;
 
     public void pingDB() {
-        entityManager.createNativeQuery("SELECT 1").getSingleResult();
+        create.fetch("SELECT 1");
     }
 
 }

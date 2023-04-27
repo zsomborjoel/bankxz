@@ -35,10 +35,9 @@ public class UserController {
     }
 
     @PostMapping("/batch")
-    public ResponseEntity<List<UUID>> saveAll(@Valid @RequestBody final List<UserDTO> userDTOS) {
-        return ResponseEntity.ok(
-                userService.saveAll(userMapper.fromDTOList(userDTOS))
-        );
+    public ResponseEntity<Void> saveAll(@Valid @RequestBody final List<UserDTO> userDTOS) {
+        userService.saveAll(userMapper.fromDTOList(userDTOS));
+        return ResponseEntity.ok().build();
     }
     
 }

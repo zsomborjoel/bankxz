@@ -28,7 +28,5 @@ public class UserDTO {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateOfBirth;
     private String placeOfBirth;
-    private List<AddressDTO> addresses;
-    private List<PhoneDTO> phones;
-    
+
 }
