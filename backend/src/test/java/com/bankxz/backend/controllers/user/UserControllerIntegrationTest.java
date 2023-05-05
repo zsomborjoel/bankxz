@@ -1,5 +1,6 @@
 package com.bankxz.backend.controllers.user;
 
+import com.bankxz.backend.generated.tables.daos.UserDao;
 import com.bankxz.backend.generated.tables.pojos.User;
 import org.jooq.DSLContext;
 import org.jooq.Records;
@@ -39,7 +40,7 @@ class UserControllerIntegrationTest {
     private WebApplicationContext context;
 
     @Autowired
-    private DSLContext dslContext;
+    private UserDao userDao;
 
     @Autowired
     private MockMvc mockMvc;
@@ -103,10 +104,7 @@ class UserControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
 
-        final User savedUser = dslContext
-                .select()
-                .from(USER)
-                .where(USER.ID.eq(UUID.fromString(actualUserId.replace("\"","")))).fetchOneInto(User.class);
+        final User savedUser = userDao.findById(UUID.fromString(actualUserId.replace("\"","")));
 
         assertEquals("zsomborjoel@gmail.com", savedUser.getEmail());
         assertEquals("Zsombor Joel", savedUser.getFirstName());

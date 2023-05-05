@@ -4,6 +4,7 @@ import com.bankxz.backend.generated.tables.daos.UserDao;
 import com.bankxz.backend.generated.tables.pojos.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jooq.DSLContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserService {
 
+    private final DSLContext context;
     private final UserDao userDao;
 
     public User getById(final UUID id) {

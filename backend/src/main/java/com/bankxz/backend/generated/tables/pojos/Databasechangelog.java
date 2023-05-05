@@ -16,20 +16,20 @@ public class Databasechangelog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String        id;
-    private String        author;
-    private String        filename;
+    private String id;
+    private String author;
+    private String filename;
     private LocalDateTime dateexecuted;
-    private Integer       orderexecuted;
-    private String        exectype;
-    private String        md5sum;
-    private String        description;
-    private String        comments;
-    private String        tag;
-    private String        liquibase;
-    private String        contexts;
-    private String        labels;
-    private String        deploymentId;
+    private Integer orderexecuted;
+    private String exectype;
+    private String md5sum;
+    private String description;
+    private String comments;
+    private String tag;
+    private String liquibase;
+    private String contexts;
+    private String labels;
+    private String deploymentId;
 
     public Databasechangelog() {}
 
@@ -51,20 +51,20 @@ public class Databasechangelog implements Serializable {
     }
 
     public Databasechangelog(
-        String        id,
-        String        author,
-        String        filename,
+        String id,
+        String author,
+        String filename,
         LocalDateTime dateexecuted,
-        Integer       orderexecuted,
-        String        exectype,
-        String        md5sum,
-        String        description,
-        String        comments,
-        String        tag,
-        String        liquibase,
-        String        contexts,
-        String        labels,
-        String        deploymentId
+        Integer orderexecuted,
+        String exectype,
+        String md5sum,
+        String description,
+        String comments,
+        String tag,
+        String liquibase,
+        String contexts,
+        String labels,
+        String deploymentId
     ) {
         this.id = id;
         this.author = author;
@@ -287,89 +287,89 @@ public class Databasechangelog implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final Databasechangelog other = (Databasechangelog) obj;
-        if (id == null) {
+        if (this.id == null) {
             if (other.id != null)
                 return false;
         }
-        else if (!id.equals(other.id))
+        else if (!this.id.equals(other.id))
             return false;
-        if (author == null) {
+        if (this.author == null) {
             if (other.author != null)
                 return false;
         }
-        else if (!author.equals(other.author))
+        else if (!this.author.equals(other.author))
             return false;
-        if (filename == null) {
+        if (this.filename == null) {
             if (other.filename != null)
                 return false;
         }
-        else if (!filename.equals(other.filename))
+        else if (!this.filename.equals(other.filename))
             return false;
-        if (dateexecuted == null) {
+        if (this.dateexecuted == null) {
             if (other.dateexecuted != null)
                 return false;
         }
-        else if (!dateexecuted.equals(other.dateexecuted))
+        else if (!this.dateexecuted.equals(other.dateexecuted))
             return false;
-        if (orderexecuted == null) {
+        if (this.orderexecuted == null) {
             if (other.orderexecuted != null)
                 return false;
         }
-        else if (!orderexecuted.equals(other.orderexecuted))
+        else if (!this.orderexecuted.equals(other.orderexecuted))
             return false;
-        if (exectype == null) {
+        if (this.exectype == null) {
             if (other.exectype != null)
                 return false;
         }
-        else if (!exectype.equals(other.exectype))
+        else if (!this.exectype.equals(other.exectype))
             return false;
-        if (md5sum == null) {
+        if (this.md5sum == null) {
             if (other.md5sum != null)
                 return false;
         }
-        else if (!md5sum.equals(other.md5sum))
+        else if (!this.md5sum.equals(other.md5sum))
             return false;
-        if (description == null) {
+        if (this.description == null) {
             if (other.description != null)
                 return false;
         }
-        else if (!description.equals(other.description))
+        else if (!this.description.equals(other.description))
             return false;
-        if (comments == null) {
+        if (this.comments == null) {
             if (other.comments != null)
                 return false;
         }
-        else if (!comments.equals(other.comments))
+        else if (!this.comments.equals(other.comments))
             return false;
-        if (tag == null) {
+        if (this.tag == null) {
             if (other.tag != null)
                 return false;
         }
-        else if (!tag.equals(other.tag))
+        else if (!this.tag.equals(other.tag))
             return false;
-        if (liquibase == null) {
+        if (this.liquibase == null) {
             if (other.liquibase != null)
                 return false;
         }
-        else if (!liquibase.equals(other.liquibase))
+        else if (!this.liquibase.equals(other.liquibase))
             return false;
-        if (contexts == null) {
+        if (this.contexts == null) {
             if (other.contexts != null)
                 return false;
         }
-        else if (!contexts.equals(other.contexts))
+        else if (!this.contexts.equals(other.contexts))
             return false;
-        if (labels == null) {
+        if (this.labels == null) {
             if (other.labels != null)
                 return false;
         }
-        else if (!labels.equals(other.labels))
+        else if (!this.labels.equals(other.labels))
             return false;
-        if (deploymentId == null) {
+        if (this.deploymentId == null) {
             if (other.deploymentId != null)
                 return false;
         }
-        else if (!deploymentId.equals(other.deploymentId))
+        else if (!this.deploymentId.equals(other.deploymentId))
             return false;
         return true;
     }

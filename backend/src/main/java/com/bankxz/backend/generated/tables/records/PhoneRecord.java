@@ -179,6 +179,7 @@ public class PhoneRecord extends UpdatableRecordImpl<PhoneRecord> implements Rec
         setId(id);
         setNumber(number);
         setUserId(userId);
+        resetChangedOnNotNull();
     }
 
     /**
@@ -191,6 +192,7 @@ public class PhoneRecord extends UpdatableRecordImpl<PhoneRecord> implements Rec
             setId(value.getId());
             setNumber(value.getNumber());
             setUserId(value.getUserId());
+            resetChangedOnNotNull();
         }
     }
 }

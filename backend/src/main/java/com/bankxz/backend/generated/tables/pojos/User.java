@@ -17,15 +17,15 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private UUID      id;
-    private String    email;
-    private String    firstName;
-    private String    lastName;
-    private String    mothersName;
-    private String    taxId;
-    private String    socialSecurityNumber;
+    private UUID id;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String mothersName;
+    private String taxId;
+    private String socialSecurityNumber;
     private LocalDate dateOfBirth;
-    private String    placeOfBirth;
+    private String placeOfBirth;
 
     public User() {}
 
@@ -42,15 +42,15 @@ public class User implements Serializable {
     }
 
     public User(
-        UUID      id,
-        String    email,
-        String    firstName,
-        String    lastName,
-        String    mothersName,
-        String    taxId,
-        String    socialSecurityNumber,
+        UUID id,
+        String email,
+        String firstName,
+        String lastName,
+        String mothersName,
+        String taxId,
+        String socialSecurityNumber,
         LocalDate dateOfBirth,
-        String    placeOfBirth
+        String placeOfBirth
     ) {
         this.id = id;
         this.email = email;
@@ -198,59 +198,59 @@ public class User implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final User other = (User) obj;
-        if (id == null) {
+        if (this.id == null) {
             if (other.id != null)
                 return false;
         }
-        else if (!id.equals(other.id))
+        else if (!this.id.equals(other.id))
             return false;
-        if (email == null) {
+        if (this.email == null) {
             if (other.email != null)
                 return false;
         }
-        else if (!email.equals(other.email))
+        else if (!this.email.equals(other.email))
             return false;
-        if (firstName == null) {
+        if (this.firstName == null) {
             if (other.firstName != null)
                 return false;
         }
-        else if (!firstName.equals(other.firstName))
+        else if (!this.firstName.equals(other.firstName))
             return false;
-        if (lastName == null) {
+        if (this.lastName == null) {
             if (other.lastName != null)
                 return false;
         }
-        else if (!lastName.equals(other.lastName))
+        else if (!this.lastName.equals(other.lastName))
             return false;
-        if (mothersName == null) {
+        if (this.mothersName == null) {
             if (other.mothersName != null)
                 return false;
         }
-        else if (!mothersName.equals(other.mothersName))
+        else if (!this.mothersName.equals(other.mothersName))
             return false;
-        if (taxId == null) {
+        if (this.taxId == null) {
             if (other.taxId != null)
                 return false;
         }
-        else if (!taxId.equals(other.taxId))
+        else if (!this.taxId.equals(other.taxId))
             return false;
-        if (socialSecurityNumber == null) {
+        if (this.socialSecurityNumber == null) {
             if (other.socialSecurityNumber != null)
                 return false;
         }
-        else if (!socialSecurityNumber.equals(other.socialSecurityNumber))
+        else if (!this.socialSecurityNumber.equals(other.socialSecurityNumber))
             return false;
-        if (dateOfBirth == null) {
+        if (this.dateOfBirth == null) {
             if (other.dateOfBirth != null)
                 return false;
         }
-        else if (!dateOfBirth.equals(other.dateOfBirth))
+        else if (!this.dateOfBirth.equals(other.dateOfBirth))
             return false;
-        if (placeOfBirth == null) {
+        if (this.placeOfBirth == null) {
             if (other.placeOfBirth != null)
                 return false;
         }
-        else if (!placeOfBirth.equals(other.placeOfBirth))
+        else if (!this.placeOfBirth.equals(other.placeOfBirth))
             return false;
         return true;
     }

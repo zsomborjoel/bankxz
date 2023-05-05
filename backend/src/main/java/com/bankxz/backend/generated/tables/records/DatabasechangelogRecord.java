@@ -576,6 +576,7 @@ public class DatabasechangelogRecord extends TableRecordImpl<DatabasechangelogRe
         setContexts(contexts);
         setLabels(labels);
         setDeploymentId(deploymentId);
+        resetChangedOnNotNull();
     }
 
     /**
@@ -599,6 +600,7 @@ public class DatabasechangelogRecord extends TableRecordImpl<DatabasechangelogRe
             setContexts(value.getContexts());
             setLabels(value.getLabels());
             setDeploymentId(value.getDeploymentId());
+            resetChangedOnNotNull();
         }
     }
 }
