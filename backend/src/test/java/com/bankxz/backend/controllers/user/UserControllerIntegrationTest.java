@@ -29,8 +29,8 @@ import static com.bankxz.backend.generated.tables.User.USER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@JooqTest
 @Transactional
+@SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)

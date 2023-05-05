@@ -27,6 +27,7 @@ public class UserService {
     }
 
     public UUID save(final User user) {
+        user.setId(UUID.randomUUID());
         userDao.insert(user);
         log.info("User has been saved | [{}]", user);
         return user.getId();

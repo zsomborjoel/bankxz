@@ -7,6 +7,7 @@ import org.jooq.SQLDialect;
 import org.jooq.conf.RenderQuotedNames;
 import org.jooq.impl.DSL;
 import org.jooq.impl.DefaultConfiguration;
+import org.jooq.impl.DefaultExecuteListenerProvider;
 import org.springframework.boot.autoconfigure.jooq.DefaultConfigurationCustomizer;
 import org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +29,10 @@ public class DatabaseConfig {
 
     @Bean
     public org.jooq.Configuration getJooqConfiguration() {
-        return new DefaultConfiguration().derive(getConnection());
+        DefaultConfiguration jooqConfiguration = new DefaultConfiguration();
+        jooqConfiguration.setSQLDialect(SQLDialect.POSTGRES);
+        jooqConfiguration.set(getConnection());
+        return jooqConfiguration;
     }
 
     private Connection getConnection() {
