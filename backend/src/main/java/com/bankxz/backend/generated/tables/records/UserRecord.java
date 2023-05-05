@@ -402,7 +402,6 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
         setSocialSecurityNumber(socialSecurityNumber);
         setDateOfBirth(dateOfBirth);
         setPlaceOfBirth(placeOfBirth);
-        resetChangedOnNotNull();
     }
 
     /**
@@ -421,7 +420,6 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
             setSocialSecurityNumber(value.getSocialSecurityNumber());
             setDateOfBirth(value.getDateOfBirth());
             setPlaceOfBirth(value.getPlaceOfBirth());
-            resetChangedOnNotNull();
         }
     }
 }

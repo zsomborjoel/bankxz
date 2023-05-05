@@ -11,17 +11,13 @@ import com.bankxz.backend.generated.tables.records.AddressRecord;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function7;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Records;
 import org.jooq.Row7;
 import org.jooq.Schema;
-import org.jooq.SelectField;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
@@ -157,11 +153,6 @@ public class Address extends TableImpl<AddressRecord> {
         return new Address(alias, this);
     }
 
-    @Override
-    public Address as(Table<?> alias) {
-        return new Address(alias.getQualifiedName(), this);
-    }
-
     /**
      * Rename this table
      */
@@ -178,14 +169,6 @@ public class Address extends TableImpl<AddressRecord> {
         return new Address(name, null);
     }
 
-    /**
-     * Rename this table
-     */
-    @Override
-    public Address rename(Table<?> name) {
-        return new Address(name.getQualifiedName(), null);
-    }
-
     // -------------------------------------------------------------------------
     // Row7 type methods
     // -------------------------------------------------------------------------
@@ -193,20 +176,5 @@ public class Address extends TableImpl<AddressRecord> {
     @Override
     public Row7<UUID, String, String, String, String, String, UUID> fieldsRow() {
         return (Row7) super.fieldsRow();
-    }
-
-    /**
-     * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
-     */
-    public <U> SelectField<U> mapping(Function7<? super UUID, ? super String, ? super String, ? super String, ? super String, ? super String, ? super UUID, ? extends U> from) {
-        return convertFrom(Records.mapping(from));
-    }
-
-    /**
-     * Convenience mapping calling {@link SelectField#convertFrom(Class,
-     * Function)}.
-     */
-    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super UUID, ? super String, ? super String, ? super String, ? super String, ? super String, ? super UUID, ? extends U> from) {
-        return convertFrom(toType, Records.mapping(from));
     }
 }

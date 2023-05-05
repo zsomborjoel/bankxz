@@ -16,9 +16,9 @@ public class Phone implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private UUID id;
+    private UUID   id;
     private String number;
-    private UUID userId;
+    private UUID   userId;
 
     public Phone() {}
 
@@ -29,9 +29,9 @@ public class Phone implements Serializable {
     }
 
     public Phone(
-        UUID id,
+        UUID   id,
         String number,
-        UUID userId
+        UUID   userId
     ) {
         this.id = id;
         this.number = number;
@@ -89,23 +89,23 @@ public class Phone implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final Phone other = (Phone) obj;
-        if (this.id == null) {
+        if (id == null) {
             if (other.id != null)
                 return false;
         }
-        else if (!this.id.equals(other.id))
+        else if (!id.equals(other.id))
             return false;
-        if (this.number == null) {
+        if (number == null) {
             if (other.number != null)
                 return false;
         }
-        else if (!this.number.equals(other.number))
+        else if (!number.equals(other.number))
             return false;
-        if (this.userId == null) {
+        if (userId == null) {
             if (other.userId != null)
                 return false;
         }
-        else if (!this.userId.equals(other.userId))
+        else if (!userId.equals(other.userId))
             return false;
         return true;
     }

@@ -11,17 +11,13 @@ import com.bankxz.backend.generated.tables.records.PhoneRecord;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function3;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Records;
 import org.jooq.Row3;
 import org.jooq.Schema;
-import org.jooq.SelectField;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
@@ -137,11 +133,6 @@ public class Phone extends TableImpl<PhoneRecord> {
         return new Phone(alias, this);
     }
 
-    @Override
-    public Phone as(Table<?> alias) {
-        return new Phone(alias.getQualifiedName(), this);
-    }
-
     /**
      * Rename this table
      */
@@ -158,14 +149,6 @@ public class Phone extends TableImpl<PhoneRecord> {
         return new Phone(name, null);
     }
 
-    /**
-     * Rename this table
-     */
-    @Override
-    public Phone rename(Table<?> name) {
-        return new Phone(name.getQualifiedName(), null);
-    }
-
     // -------------------------------------------------------------------------
     // Row3 type methods
     // -------------------------------------------------------------------------
@@ -173,20 +156,5 @@ public class Phone extends TableImpl<PhoneRecord> {
     @Override
     public Row3<UUID, String, UUID> fieldsRow() {
         return (Row3) super.fieldsRow();
-    }
-
-    /**
-     * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
-     */
-    public <U> SelectField<U> mapping(Function3<? super UUID, ? super String, ? super UUID, ? extends U> from) {
-        return convertFrom(Records.mapping(from));
-    }
-
-    /**
-     * Convenience mapping calling {@link SelectField#convertFrom(Class,
-     * Function)}.
-     */
-    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super UUID, ? super String, ? super UUID, ? extends U> from) {
-        return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -5,7 +5,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath 'org.jooq:jooq-codegen:3.18.3'
+		classpath 'org.jooq:jooq-codegen:3.16.0'
 		classpath 'org.postgresql:postgresql:42.6.0'
 	}
 }
@@ -30,18 +30,15 @@ ext {
 }
 
 dependencies {
-	implementation 'org.jooq:jooq:3.18.3'
-
+	implementation 'org.jooq:jooq:3.16.0'
 	implementation "org.springframework.boot:spring-boot-starter-web"
-	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-jooq'
 	implementation "org.springframework.boot:spring-boot-starter-validation"
-
 	implementation 'org.liquibase:liquibase-core:4.21.1'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
-
 	implementation 'org.postgresql:postgresql:42.6.0'
-	testImplementation 'junit:junit:4.13.1'
-
+	implementation 'junit:junit:4.13.1'
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
 	implementation 'org.apache.commons:commons-collections4:4.4'
 	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
@@ -55,6 +52,14 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+test {
+	useJUnitPlatform()
 }
 
 compileJava {
@@ -83,8 +88,7 @@ GenerationTool.generate(new Configuration()
 					.withJavaTimeTypes(true)
 					.withRelations(true)
 					.withDaos(true)
-					.withSpringAnnotations(true)
-					.withSpringDao(true))
+					.withSpringAnnotations(true))
 				.withTarget(new Target()
 						.withPackageName('com.bankxz.backend.generated')
 						.withDirectory('/home/zsomborjoel/Git/bankxz/backend/src/main/java'))))

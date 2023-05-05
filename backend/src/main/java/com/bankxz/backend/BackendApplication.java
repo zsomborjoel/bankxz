@@ -2,9 +2,10 @@ package com.bankxz.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.r2dbc.R2dbcAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { R2dbcAutoConfiguration.class })
 @ConfigurationPropertiesScan("com.bankxz.backend.properties")
 public class BackendApplication {
 

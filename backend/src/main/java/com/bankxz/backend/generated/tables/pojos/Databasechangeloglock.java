@@ -16,10 +16,10 @@ public class Databasechangeloglock implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
-    private Boolean locked;
+    private Integer       id;
+    private Boolean       locked;
     private LocalDateTime lockgranted;
-    private String lockedby;
+    private String        lockedby;
 
     public Databasechangeloglock() {}
 
@@ -31,10 +31,10 @@ public class Databasechangeloglock implements Serializable {
     }
 
     public Databasechangeloglock(
-        Integer id,
-        Boolean locked,
+        Integer       id,
+        Boolean       locked,
         LocalDateTime lockgranted,
-        String lockedby
+        String        lockedby
     ) {
         this.id = id;
         this.locked = locked;
@@ -107,29 +107,29 @@ public class Databasechangeloglock implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final Databasechangeloglock other = (Databasechangeloglock) obj;
-        if (this.id == null) {
+        if (id == null) {
             if (other.id != null)
                 return false;
         }
-        else if (!this.id.equals(other.id))
+        else if (!id.equals(other.id))
             return false;
-        if (this.locked == null) {
+        if (locked == null) {
             if (other.locked != null)
                 return false;
         }
-        else if (!this.locked.equals(other.locked))
+        else if (!locked.equals(other.locked))
             return false;
-        if (this.lockgranted == null) {
+        if (lockgranted == null) {
             if (other.lockgranted != null)
                 return false;
         }
-        else if (!this.lockgranted.equals(other.lockgranted))
+        else if (!lockgranted.equals(other.lockgranted))
             return false;
-        if (this.lockedby == null) {
+        if (lockedby == null) {
             if (other.lockedby != null)
                 return false;
         }
-        else if (!this.lockedby.equals(other.lockedby))
+        else if (!lockedby.equals(other.lockedby))
             return false;
         return true;
     }

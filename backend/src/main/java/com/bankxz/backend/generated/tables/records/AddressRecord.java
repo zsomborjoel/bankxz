@@ -327,7 +327,6 @@ public class AddressRecord extends UpdatableRecordImpl<AddressRecord> implements
         setHouseNumber(houseNumber);
         setFloor(floor);
         setUserId(userId);
-        resetChangedOnNotNull();
     }
 
     /**
@@ -344,7 +343,6 @@ public class AddressRecord extends UpdatableRecordImpl<AddressRecord> implements
             setHouseNumber(value.getHouseNumber());
             setFloor(value.getFloor());
             setUserId(value.getUserId());
-            resetChangedOnNotNull();
         }
     }
 }

@@ -4,7 +4,6 @@
 package com.bankxz.backend.generated.tables.daos;
 
 
-import com.bankxz.backend.generated.AbstractSpringDAOImpl;
 import com.bankxz.backend.generated.tables.Phone;
 import com.bankxz.backend.generated.tables.records.PhoneRecord;
 
@@ -13,6 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.jooq.Configuration;
+import org.jooq.impl.DAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 @Repository
-public class PhoneDao extends AbstractSpringDAOImpl<PhoneRecord, com.bankxz.backend.generated.tables.pojos.Phone, UUID> {
+public class PhoneDao extends DAOImpl<PhoneRecord, com.bankxz.backend.generated.tables.pojos.Phone, UUID> {
 
     /**
      * Create a new PhoneDao without any configuration

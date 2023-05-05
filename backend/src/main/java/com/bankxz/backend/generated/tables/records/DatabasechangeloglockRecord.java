@@ -216,7 +216,6 @@ public class DatabasechangeloglockRecord extends UpdatableRecordImpl<Databasecha
         setLocked(locked);
         setLockgranted(lockgranted);
         setLockedby(lockedby);
-        resetChangedOnNotNull();
     }
 
     /**
@@ -230,7 +229,6 @@ public class DatabasechangeloglockRecord extends UpdatableRecordImpl<Databasecha
             setLocked(value.getLocked());
             setLockgranted(value.getLockgranted());
             setLockedby(value.getLockedby());
-            resetChangedOnNotNull();
         }
     }
 }

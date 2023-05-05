@@ -4,7 +4,6 @@
 package com.bankxz.backend.generated.tables.daos;
 
 
-import com.bankxz.backend.generated.AbstractSpringDAOImpl;
 import com.bankxz.backend.generated.tables.Databasechangeloglock;
 import com.bankxz.backend.generated.tables.records.DatabasechangeloglockRecord;
 
@@ -13,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.jooq.Configuration;
+import org.jooq.impl.DAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 @Repository
-public class DatabasechangeloglockDao extends AbstractSpringDAOImpl<DatabasechangeloglockRecord, com.bankxz.backend.generated.tables.pojos.Databasechangeloglock, Integer> {
+public class DatabasechangeloglockDao extends DAOImpl<DatabasechangeloglockRecord, com.bankxz.backend.generated.tables.pojos.Databasechangeloglock, Integer> {
 
     /**
      * Create a new DatabasechangeloglockDao without any configuration

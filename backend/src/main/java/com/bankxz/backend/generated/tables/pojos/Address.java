@@ -16,13 +16,13 @@ public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private UUID id;
+    private UUID   id;
     private String postalCode;
     private String city;
     private String street;
     private String houseNumber;
     private String floor;
-    private UUID userId;
+    private UUID   userId;
 
     public Address() {}
 
@@ -37,13 +37,13 @@ public class Address implements Serializable {
     }
 
     public Address(
-        UUID id,
+        UUID   id,
         String postalCode,
         String city,
         String street,
         String houseNumber,
         String floor,
-        UUID userId
+        UUID   userId
     ) {
         this.id = id;
         this.postalCode = postalCode;
@@ -161,47 +161,47 @@ public class Address implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final Address other = (Address) obj;
-        if (this.id == null) {
+        if (id == null) {
             if (other.id != null)
                 return false;
         }
-        else if (!this.id.equals(other.id))
+        else if (!id.equals(other.id))
             return false;
-        if (this.postalCode == null) {
+        if (postalCode == null) {
             if (other.postalCode != null)
                 return false;
         }
-        else if (!this.postalCode.equals(other.postalCode))
+        else if (!postalCode.equals(other.postalCode))
             return false;
-        if (this.city == null) {
+        if (city == null) {
             if (other.city != null)
                 return false;
         }
-        else if (!this.city.equals(other.city))
+        else if (!city.equals(other.city))
             return false;
-        if (this.street == null) {
+        if (street == null) {
             if (other.street != null)
                 return false;
         }
-        else if (!this.street.equals(other.street))
+        else if (!street.equals(other.street))
             return false;
-        if (this.houseNumber == null) {
+        if (houseNumber == null) {
             if (other.houseNumber != null)
                 return false;
         }
-        else if (!this.houseNumber.equals(other.houseNumber))
+        else if (!houseNumber.equals(other.houseNumber))
             return false;
-        if (this.floor == null) {
+        if (floor == null) {
             if (other.floor != null)
                 return false;
         }
-        else if (!this.floor.equals(other.floor))
+        else if (!floor.equals(other.floor))
             return false;
-        if (this.userId == null) {
+        if (userId == null) {
             if (other.userId != null)
                 return false;
         }
-        else if (!this.userId.equals(other.userId))
+        else if (!userId.equals(other.userId))
             return false;
         return true;
     }

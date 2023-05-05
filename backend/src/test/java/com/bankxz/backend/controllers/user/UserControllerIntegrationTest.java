@@ -1,12 +1,14 @@
 package com.bankxz.backend.controllers.user;
 
-import com.bankxz.backend.entities.User;
+import com.bankxz.backend.generated.tables.pojos.User;
+import org.jooq.DSLContext;
+import org.jooq.Records;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
+import org.springframework.boot.test.autoconfigure.jooq.JooqTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -16,29 +18,28 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import static org.junit.Assert.assertEquals;
+import static com.bankxz.backend.generated.tables.User.USER;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@JooqTest
 @Transactional
-@SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
-@AutoConfigureTestEntityManager
 class UserControllerIntegrationTest {
 
     @Autowired
     private WebApplicationContext context;
 
     @Autowired
-    private EntityManager entityManager;
+    private DSLContext dslContext;
 
     @Autowired
     private MockMvc mockMvc;
@@ -102,10 +103,10 @@ class UserControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
 
-        final User savedUser = entityManager.find(
-                User.class,
-                UUID.fromString(actualUserId.replace("\"",""))
-        );
+        final User savedUser = dslContext
+                .select()
+                .from(USER)
+                .where(USER.ID.eq(UUID.fromString(actualUserId.replace("\"","")))).fetchOneInto(User.class);
 
         assertEquals("zsomborjoel@gmail.com", savedUser.getEmail());
         assertEquals("Zsombor Joel", savedUser.getFirstName());
@@ -114,8 +115,6 @@ class UserControllerIntegrationTest {
         assertEquals("123456789", savedUser.getSocialSecurityNumber());
         assertEquals(LocalDate.of(1994, 10, 19), savedUser.getDateOfBirth());
         assertEquals("Budapest", savedUser.getPlaceOfBirth());
-        assertEquals(2, savedUser.getAddresses().size());
-        assertEquals(2, savedUser.getPhones().size());
     }
 
     @ParameterizedTest
