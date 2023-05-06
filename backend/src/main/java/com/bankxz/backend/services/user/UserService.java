@@ -1,10 +1,8 @@
 package com.bankxz.backend.services.user;
 
-import com.bankxz.backend.generated.tables.daos.UserDao;
-import com.bankxz.backend.generated.tables.pojos.User;
+import com.bankxz.backend.generated.tables.records.UserRecord;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jooq.DSLContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,26 +13,24 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final DSLContext context;
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    public User getById(final UUID id) {
-        return userDao.findById(id);
+    public UserRecord findById(final UUID id) {
+        return userRepository.findById(id);
     }
 
-    public List<User> getAll() {
-        return userDao.findAll();
+    public List<UserRecord> findAll() {
+        return userRepository.findAll();
     }
 
-    public UUID save(final User user) {
-        user.setId(UUID.randomUUID());
-        userDao.insert(user);
+    public UUID insert(final UserRecord user) {
+        userRepository.insert(user);
         log.info("User has been saved | [{}]", user);
         return user.getId();
     }
 
-    public void saveAll(final List<User> users) {
-        userDao.insert(users);
+    public void batchInsert(final List<UserRecord> users) {
+        userRepository.batchInsert(users);
         log.info("This many users has been bulk saved | [{}]", users.size());
     }
 

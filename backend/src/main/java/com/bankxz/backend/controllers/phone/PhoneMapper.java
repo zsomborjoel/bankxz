@@ -1,6 +1,6 @@
 package com.bankxz.backend.controllers.phone;
 
-import com.bankxz.backend.generated.tables.pojos.Phone;
+import com.bankxz.backend.generated.tables.records.PhoneRecord;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -10,8 +10,8 @@ import java.util.List;
 public interface PhoneMapper {
 
     @Mapping(target = "userId", ignore = true)
-    Phone fromDTO(PhoneDTO phoneDTO);
+    PhoneRecord fromDTO(PhoneDTO phoneDTO);
 
-    List<Phone> fromDTOList(List<PhoneDTO> phoneDTOS);
+    List<PhoneRecord> fromDTOList(List<PhoneDTO> phoneDTOS);
 
 }

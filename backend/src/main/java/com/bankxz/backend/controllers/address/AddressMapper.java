@@ -1,6 +1,6 @@
 package com.bankxz.backend.controllers.address;
 
-import com.bankxz.backend.generated.tables.pojos.Address;
+import com.bankxz.backend.generated.tables.records.AddressRecord;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -10,8 +10,8 @@ import java.util.List;
 public interface AddressMapper {
 
     @Mapping(target = "userId", ignore = true)
-    Address fromDTO(AddressDTO addressDTO);
+    AddressRecord fromDTO(AddressDTO addressDTO);
 
-    List<Address> fromDTOList(List<AddressDTO> addressDTOS);
+    List<AddressRecord> fromDTOList(List<AddressDTO> addressDTOS);
 
 }

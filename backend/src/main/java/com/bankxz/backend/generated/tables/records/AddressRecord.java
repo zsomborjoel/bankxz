@@ -329,22 +329,4 @@ public class AddressRecord extends UpdatableRecordImpl<AddressRecord> implements
         setUserId(userId);
         resetChangedOnNotNull();
     }
-
-    /**
-     * Create a detached, initialised AddressRecord
-     */
-    public AddressRecord(com.bankxz.backend.generated.tables.pojos.Address value) {
-        super(Address.ADDRESS);
-
-        if (value != null) {
-            setId(value.getId());
-            setPostalCode(value.getPostalCode());
-            setCity(value.getCity());
-            setStreet(value.getStreet());
-            setHouseNumber(value.getHouseNumber());
-            setFloor(value.getFloor());
-            setUserId(value.getUserId());
-            resetChangedOnNotNull();
-        }
-    }
 }

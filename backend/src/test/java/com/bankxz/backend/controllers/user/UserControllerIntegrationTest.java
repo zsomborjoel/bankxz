@@ -1,15 +1,12 @@
 package com.bankxz.backend.controllers.user;
 
-import com.bankxz.backend.generated.tables.daos.UserDao;
-import com.bankxz.backend.generated.tables.pojos.User;
-import org.jooq.DSLContext;
-import org.jooq.Records;
+import com.bankxz.backend.generated.tables.records.UserRecord;
+import com.bankxz.backend.services.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jooq.JooqTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -25,7 +22,6 @@ import org.springframework.web.context.WebApplicationContext;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import static com.bankxz.backend.generated.tables.User.USER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -40,7 +36,7 @@ class UserControllerIntegrationTest {
     private WebApplicationContext context;
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Autowired
     private MockMvc mockMvc;
@@ -104,7 +100,7 @@ class UserControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
 
-        final User savedUser = userDao.findById(UUID.fromString(actualUserId.replace("\"","")));
+        final UserRecord savedUser = userRepository.findById(UUID.fromString(actualUserId.replace("\"","")));
 
         assertEquals("zsomborjoel@gmail.com", savedUser.getEmail());
         assertEquals("Zsombor Joel", savedUser.getFirstName());

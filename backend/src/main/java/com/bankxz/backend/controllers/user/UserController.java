@@ -1,5 +1,6 @@
 package com.bankxz.backend.controllers.user;
 
+import com.bankxz.backend.services.account.AccountService;
 import com.bankxz.backend.services.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,24 +20,25 @@ public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
+    private final AccountService accountService;
 
     @GetMapping
-    public ResponseEntity<List<UserDTO>> getAll() {
+    public ResponseEntity<List<UserDTO>> findAll() {
         return ResponseEntity.ok(
-                userMapper.toDTOList(userService.getAll())
+                userMapper.toDTOList(userService.findAll())
         );
     }
 
     @PostMapping
-    public ResponseEntity<UUID> save(@Valid @RequestBody final UserDTO userDTO) {
+    public ResponseEntity<UUID> insert(@Valid @RequestBody final UserDTO userDTO) {
         return ResponseEntity.ok(
-                userService.save(userMapper.fromDTO(userDTO))
+                userService.insert(userMapper.fromDTO(userDTO))
         );
     }
 
     @PostMapping("/batch")
-    public ResponseEntity<Void> saveAll(@Valid @RequestBody final List<UserDTO> userDTOS) {
-        userService.saveAll(userMapper.fromDTOList(userDTOS));
+    public ResponseEntity<Void> batchInsert(@Valid @RequestBody final List<UserDTO> userDTOS) {
+        userService.batchInsert(userMapper.fromDTOList(userDTOS));
         return ResponseEntity.ok().build();
     }
     

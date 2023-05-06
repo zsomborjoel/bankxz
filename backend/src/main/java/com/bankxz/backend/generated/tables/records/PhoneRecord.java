@@ -181,18 +181,4 @@ public class PhoneRecord extends UpdatableRecordImpl<PhoneRecord> implements Rec
         setUserId(userId);
         resetChangedOnNotNull();
     }
-
-    /**
-     * Create a detached, initialised PhoneRecord
-     */
-    public PhoneRecord(com.bankxz.backend.generated.tables.pojos.Phone value) {
-        super(Phone.PHONE);
-
-        if (value != null) {
-            setId(value.getId());
-            setNumber(value.getNumber());
-            setUserId(value.getUserId());
-            resetChangedOnNotNull();
-        }
-    }
 }

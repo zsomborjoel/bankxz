@@ -404,24 +404,4 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
         setPlaceOfBirth(placeOfBirth);
         resetChangedOnNotNull();
     }
-
-    /**
-     * Create a detached, initialised UserRecord
-     */
-    public UserRecord(com.bankxz.backend.generated.tables.pojos.User value) {
-        super(User.USER);
-
-        if (value != null) {
-            setId(value.getId());
-            setEmail(value.getEmail());
-            setFirstName(value.getFirstName());
-            setLastName(value.getLastName());
-            setMothersName(value.getMothersName());
-            setTaxId(value.getTaxId());
-            setSocialSecurityNumber(value.getSocialSecurityNumber());
-            setDateOfBirth(value.getDateOfBirth());
-            setPlaceOfBirth(value.getPlaceOfBirth());
-            resetChangedOnNotNull();
-        }
-    }
 }

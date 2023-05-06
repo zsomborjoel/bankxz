@@ -8,5 +8,7 @@
     <include file="db/changelogs/datastructure/2023-02-18-changelog-1-user-v1.xml"/>
     <include file="db/changelogs/datastructure/2023-02-18-changelog-2-address-v1.xml"/>
     <include file="db/changelogs/datastructure/2023-02-18-changelog-3-phone-v1.xml"/>
+    <include file="db/changelogs/datastructure/2023-05-06-changelog-4-account-v1.xml"/>
+    <include file="db/changelogs/datastructure/2023-05-06-changelog-5-transaction-v1.xml"/>
 
 </databaseChangeLog>

@@ -4,10 +4,12 @@
 package com.bankxz.backend.generated;
 
 
+import com.bankxz.backend.generated.tables.Account;
 import com.bankxz.backend.generated.tables.Address;
 import com.bankxz.backend.generated.tables.Databasechangelog;
 import com.bankxz.backend.generated.tables.Databasechangeloglock;
 import com.bankxz.backend.generated.tables.Phone;
+import com.bankxz.backend.generated.tables.Transaction;
 import com.bankxz.backend.generated.tables.User;
 
 
@@ -16,6 +18,11 @@ import com.bankxz.backend.generated.tables.User;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>public.account</code>.
+     */
+    public static final Account ACCOUNT = Account.ACCOUNT;
 
     /**
      * The table <code>public.address</code>.
@@ -36,6 +43,11 @@ public class Tables {
      * The table <code>public.phone</code>.
      */
     public static final Phone PHONE = Phone.PHONE;
+
+    /**
+     * The table <code>public.transaction</code>.
+     */
+    public static final Transaction TRANSACTION = Transaction.TRANSACTION;
 
     /**
      * The table <code>public.user</code>.

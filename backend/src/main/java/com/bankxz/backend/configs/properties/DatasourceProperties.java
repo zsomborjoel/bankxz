@@ -1,4 +1,4 @@
-package com.bankxz.backend.properties;
+package com.bankxz.backend.configs.properties;
 
 import lombok.Getter;
 import lombok.Setter;

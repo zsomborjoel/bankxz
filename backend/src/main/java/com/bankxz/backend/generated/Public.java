@@ -4,10 +4,12 @@
 package com.bankxz.backend.generated;
 
 
+import com.bankxz.backend.generated.tables.Account;
 import com.bankxz.backend.generated.tables.Address;
 import com.bankxz.backend.generated.tables.Databasechangelog;
 import com.bankxz.backend.generated.tables.Databasechangeloglock;
 import com.bankxz.backend.generated.tables.Phone;
+import com.bankxz.backend.generated.tables.Transaction;
 import com.bankxz.backend.generated.tables.User;
 
 import java.util.Arrays;
@@ -32,6 +34,11 @@ public class Public extends SchemaImpl {
     public static final Public PUBLIC = new Public();
 
     /**
+     * The table <code>public.account</code>.
+     */
+    public final Account ACCOUNT = Account.ACCOUNT;
+
+    /**
      * The table <code>public.address</code>.
      */
     public final Address ADDRESS = Address.ADDRESS;
@@ -50,6 +57,11 @@ public class Public extends SchemaImpl {
      * The table <code>public.phone</code>.
      */
     public final Phone PHONE = Phone.PHONE;
+
+    /**
+     * The table <code>public.transaction</code>.
+     */
+    public final Transaction TRANSACTION = Transaction.TRANSACTION;
 
     /**
      * The table <code>public.user</code>.
@@ -72,10 +84,12 @@ public class Public extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            Account.ACCOUNT,
             Address.ADDRESS,
             Databasechangelog.DATABASECHANGELOG,
             Databasechangeloglock.DATABASECHANGELOGLOCK,
             Phone.PHONE,
+            Transaction.TRANSACTION,
             User.USER
         );
     }

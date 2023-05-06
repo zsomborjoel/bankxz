@@ -1,15 +1,10 @@
 package com.bankxz.backend.configs;
 
-import com.bankxz.backend.properties.DatasourceProperties;
+import com.bankxz.backend.configs.properties.DatasourceProperties;
+import com.bankxz.backend.configs.providers.RecordMapperProviderImpl;
 import lombok.RequiredArgsConstructor;
-import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
-import org.jooq.conf.RenderQuotedNames;
-import org.jooq.impl.DSL;
 import org.jooq.impl.DefaultConfiguration;
-import org.jooq.impl.DefaultExecuteListenerProvider;
-import org.springframework.boot.autoconfigure.jooq.DefaultConfigurationCustomizer;
-import org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,15 +18,11 @@ public class DatabaseConfig {
     private final DatasourceProperties datasourceProperties;
 
     @Bean
-    public DSLContext getDslContext() {
-        return DSL.using(getConnection(), SQLDialect.POSTGRES);
-    }
-
-    @Bean
     public org.jooq.Configuration getJooqConfiguration() {
         DefaultConfiguration jooqConfiguration = new DefaultConfiguration();
         jooqConfiguration.setSQLDialect(SQLDialect.POSTGRES);
         jooqConfiguration.set(getConnection());
+        jooqConfiguration.set(new RecordMapperProviderImpl());
         return jooqConfiguration;
     }
 
